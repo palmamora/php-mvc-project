@@ -1,0 +1,15 @@
+/*generals*/
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+body{background:url('../images/subtle_orange_emboss.png');font-family:'Ubuntu',sans-serif;}
+ul{list-style:none;}
+a {text-decoration: none;}
+/*nav*/
+.nav {display:block;background:linear-gradient(#373a40,#686d76);}
+.nav>ul{display:flex;flex-flow:row wrap;justify-content: center;}
+.nav a{display:block;padding:5px;color:white;}
+.nav li:hover {background:linear-gradient(#32e0c4,#0d7377);}
+/*footer*/
+.footer {display:flex;background:linear-gradient(#373a40,#686d76);flex-direction:row;justify-content:center;}
+.footer span{color:white;padding:5px;}
+/*content*/
+.content{background-color:whitesmoke;}

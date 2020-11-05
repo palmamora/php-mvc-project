@@ -1,0 +1,1 @@
+<div class="content"><p>inside index.</p></div>
