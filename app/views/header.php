@@ -11,8 +11,8 @@
 
 <nav class="nav">
     <ul>
-        <li><a href="index">index</a></li>
-        <li><a href="help">help</a></li>
-        <li><a href="login">login</a></li>
+        <li><a href="<?php echo URL ?>index">index</a></li>
+        <li><a href="<?php echo URL ?>help">help</a></li>
+        <li><a href="<?php echo URL ?>login">login</a></li>
     </ul>
 </nav>

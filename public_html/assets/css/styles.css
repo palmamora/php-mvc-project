@@ -5,7 +5,7 @@ ul{list-style:none;}
 a {text-decoration: none;}
 /*nav*/
 .nav {display:block;background:linear-gradient(#373a40,#686d76);}
-.nav>ul{display:flex;flex-flow:row wrap;justify-content: center;}
+.nav>ul{display:flex;flex-flow:row wrap;justify-content: center; padding: 0; margin: 0;}
 .nav a{display:block;padding:5px;color:white;}
 .nav li:hover {background:linear-gradient(#32e0c4,#0d7377);}
 /*footer*/
@@ -13,3 +13,10 @@ a {text-decoration: none;}
 .footer span{color:white;padding:5px;}
 /*content*/
 .content{background-color:whitesmoke;}
+
+/*others*/
+.form {display: flex; justify-content: center; padding: 25px;}
+.form form {display: flex; flex-flow: column wrap; width: 250px; background-color: whitesmoke; border-radius: 5px;}
+.form form > * {margin-top: 5px; margin-bottom: 5px;}
+.btn {padding: 5px; border-radius: 5px; font-weight: bold;}
+.btn-primary{background-image: linear-gradient(#04519b, #033c73 60%, #02325f); color: white;}

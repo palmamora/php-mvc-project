@@ -1,1 +1,1 @@
-<div class="content"><p>inside help.</p></div>
+<div class="content"><p><?php echo $msg ?></p></div>
