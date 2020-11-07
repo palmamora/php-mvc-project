@@ -2,7 +2,7 @@
 
 namespace models;
 
-use mysqli_stmt;
+use Session;
 
 class Login extends \Model
 {
@@ -14,29 +14,24 @@ class Login extends \Model
     public function auth()
     {
         //arreglar esto
-        $link = mysqli_connect('localhost', 'root', '', 'id14855054_palmamora001', 3306);
-        $query = 'SELECT * FROM users WHERE email = (?) AND password = (?);';
-        $username = isset($_POST['username']) ? $_POST['username'] : 'admin';
-        $password = isset($_POST['password']) ? md5($_POST['password']) : '21232f297a57a5a743894a0e4a801fc3';
-        $stmt = mysqli_stmt_init($link);
-        mysqli_stmt_prepare($stmt, $query);
-        mysqli_stmt_bind_param($stmt, 'ss', $username, $password);
-        mysqli_stmt_execute($stmt);
-        $rs = mysqli_stmt_get_result($stmt);
-        var_dump($rs);
-        while ($fila = mysqli_fetch_array($rs, MYSQLI_NUM))
-        {
-            foreach ($fila as $f)
-            {
-                print "$f ";
+        $username = (isset($_POST['username'])) ? $_POST['username'] : '';
+        $password = (isset($_POST['password'])) ? md5($_POST['password']) : '';
+        if ($username == '' || $password == '') {
+            return false;
+        } else {
+            $stmt = $this->db->prepare('SELECT * FROM users WHERE email=(?) AND password=(?);');
+            $stmt->bind_param('ss', $username, $password);
+            $stmt->execute();
+            $rs = $stmt->get_result();
+            if (($rs->num_rows) === 1) {
+                Session::start();
+                Session::set('logged', true);
+                Session::set('username', $username);
+                return true;
+            } else {
+                return false;
             }
-            print "\n";
         }
-
-        //$row = mysqli_fetch_assoc($rs);
-        //var_dump($row);
-
-        //$rs = $stmt->execute();
-        //var_dump($rs);
+        return false;
     }
 }
