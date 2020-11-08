@@ -5,12 +5,11 @@ class Database extends mysqli
     public function __construct()
     {
         parent::__construct(
-            'localhost',
-            'root',
-            '',
-            'id14855054_palmamora001',
-            3306
+            DB_HOST,
+            DB_USER,
+            DB_PASS,
+            DB_NAME,
+            DB_PORT
         );
     }
-
 }
