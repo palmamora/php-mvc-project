@@ -20,19 +20,30 @@ class Dashboard extends \Model
             $stmt = $this->db->prepare('INSERT INTO data(text) VALUES(?);');
             $stmt->bind_param('s', $text);
             $stmt->execute();
+            $data = array('text'=>$text, 'id'=>$this->db->insert_id);
+            return json_encode($data);
         }
         return false;
     }
 
     public function xhrGetList(){
         $rs = $this->db->query('SELECT * FROM data;');
-        $arr = array();
+        $data = array();
         $cont = 0;
         while($row = $rs->fetch_assoc()){
-            $arr[$cont] = $row;
+            $data[$cont] = $row;
             $cont+=1;
         }
-        return json_encode($arr);
+        return json_encode($data);
         
+    }
+
+    public function xhrDelete(){
+        $id = $_POST['id'];
+        $stmt = $this->db->prepare("DELETE FROM data WHERE id=(?);");
+        $stmt->bind_param('i', $id);
+        $rs = $stmt->execute();
+        return json_encode($rs);
+
     }
 }

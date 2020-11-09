@@ -12,6 +12,7 @@ class Dashboard extends \Controller
         if (Session::get('logged')) {
             parent::__construct();
             $this->view->js = array('dashboard/js/default.js');
+            $this->initModel('dashboard');
         } else {
             Session::destroy();
             header('location:' . URL . 'login');
@@ -25,12 +26,13 @@ class Dashboard extends \Controller
     }
 
     function xhrInsert(){
-        $this->initModel('dashboard');
-        $this->model->xhrInsert();  
+        echo $this->model->xhrInsert();  
     }
 
     function xhrGetList(){
-        $this->initModel('dashboard');
         echo $this->model->xhrGetList();
+    }
+    function xhrDelete(){
+        echo $this->model->xhrDelete();
     }
 }

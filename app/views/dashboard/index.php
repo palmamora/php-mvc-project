@@ -18,8 +18,9 @@
 <table>
     <thead>
         <tr>
-            <!-- <th>id</th> -->
+            <th>id</th>
             <th>data</th>
+            <th>actions</th>
         </tr>
     </thead>
     <tbody id="tableList">
