@@ -27,6 +27,9 @@ class Login extends \Model
                 Session::start();
                 Session::set('logged', true);
                 Session::set('username', $username);
+                $user = $rs->fetch_assoc();
+                $role = $user['role'];
+                Session::set('role',$role);
                 return true;
             } else {
                 return false;

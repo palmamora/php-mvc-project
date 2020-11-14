@@ -20,6 +20,8 @@ class Login extends \Controller
     {
         if ($this->model->auth()) {
             header('location:'. URL . 'dashboard');
+        }else{
+            header('location:' . URL . 'login');
         }
     }
 
