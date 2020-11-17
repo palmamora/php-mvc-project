@@ -1,6 +1,12 @@
 <div class="div-background">
     <h3>Welcome, <?php echo $_SESSION['username']; ?></h3>
     <button class="btn btn-secondary"><a href="<?php echo URL ?>login/logout">Logout</a></button>
+    <?php
+        if ($_SESSION['role']=='owner') {
+            echo '<button class="btn btn-secondary">
+            <a href="' . URL . 'user/users">Users</a></button>';
+        }
+    ?>
 </div>
 
 <div class="div-background">
