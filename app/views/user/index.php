@@ -1,8 +1,11 @@
-<div class="div-background"><h3>Users</h3></div>
+<div class="row d-flex justify-content-center">
+    <h3>Users</h3>
+</div>
 <div class="row">
     <div class="col-4">
         <div class="container" style="display: flex;justify-content:center;">
             <form class="bg-light p-4" style="display:flex;flex-flow:column nowrap;width:75%" action="<?=URL?>user/create" method="post">
+            <h3>Create User</h3>
                 <label for="username">Username:</label>
                 <input type="text" name="username" id="">
                 <label for="email">Email:</label>
@@ -41,8 +44,8 @@
                         echo '<td>' . $e['email'] . '</td>';
                         echo '<td>' . $e['role'] . '</td>';
 
-                        echo '<td><button class="btn btn-primary"><a href="' . URL . 'user/edit/' . $e['id'] . '">Editar</a></button></td>';
-                        echo '<td><button class="btn btn-secondary"><a href="' . URL . 'user/delete/' . $e['id'] . '">Eliminar</a></button></td>';
+                        echo '<td><button class="btn btn-success"><a href="' . URL . 'user/edit/' . $e['id'] . '">Editar</a></button></td>';
+                        echo '<td><button class="btn btn-danger"><a href="' . URL . 'user/delete/' . $e['id'] . '">Eliminar</a></button></td>';
                         echo '</tr>';
                     }
                     ?>

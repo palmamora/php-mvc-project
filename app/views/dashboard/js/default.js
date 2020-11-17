@@ -2,7 +2,16 @@ $(function () {
 
     $.get('dashboard/xhrGetList', (data) => {
         for (let i = 0; i < data.length; i++) {
-            $('#tableList').append('<tr><td>' + data[i].id + '</td><td>' + data[i].text + '</td><td><a href="#" class="del btn btn-secondary" rel="' + data[i].id + '">Eliminar</a></td></tr>');
+            let cells = 
+            `<tr>
+                <td> ${data[i].id} </td>
+                <td> ${data[i].text} </td>
+                <td>
+                  <a href="#" class="del btn btn-danger" rel="${data[i].id}">Eliminar</a>
+                </td>
+            </tr>`;
+            //$('#tableList').append('<tr><td>' + data[i].id + '</td><td>' + data[i].text + '</td><td><a href="#" class="del btn btn-secondary" rel="' + data[i].id + '">Eliminar</a></td></tr>');
+            $('#tableList').append(cells);
         }
 
         $('.del').click(function (event) {

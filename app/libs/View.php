@@ -13,4 +13,8 @@ class View
         require_once __DIR__ . '/../views/' . $name . '.php';
         require_once __DIR__ . '/../views/footer.php';
     }
+
+    public function renderOne($name){
+        require_once __DIR__ . '/../views/' . $name . '.php';
+    }
 }
