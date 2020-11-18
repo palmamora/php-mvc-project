@@ -8,6 +8,7 @@ class Session
     }
     public static function destroy()
     {
+        session_start();
         setcookie(session_name(), 0, 1, ini_get("session.cookie_path"));
         session_destroy();
     }
